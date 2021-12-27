@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  app:
+    image: annastasyaivory/uas
+    container_name: php-apache
+    depends_on:
+      - db
+    volumes:
+      - ./php/src:/var/www/html/
+    ports:
+      - 8000:80
+    networks:
+      - backend
+
+  #MySQL Service
+  db:
+    container_name: db
+    image: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: dbmhs
+      MYSQL_ROOT_PASSWORD: Tacunglyvoryy26.
+    volumes:
+      - db:/var/lib/mysql
+      - ./dbmhs.sql:/docker-entrypoint-initdb.d/dbmhs.sql
+    networks:
+      - backend
+
+volumes:
+  db:
+
+#Docker Networks
+networks:
+  backend:
+    name: backend-networks
+    ipam: 
+      driver: default
+      config:
+        - subnet: 172.20.0.0/24
