@@ -12,7 +12,6 @@ services:
     networks:
       - backend
 
-  #MySQL Service
   db:
     container_name: db
     image: mysql
@@ -21,15 +20,15 @@ services:
       - "3306:3306"
     environment:
       MYSQL_DATABASE: dbmhs
-      MYSQL_ROOT_PASSWORD: Tacunglyvoryy26.
+      MYSQL_ROOT_PASSWORD: admin
     volumes:
       - db:/var/lib/mysql
-      - ./dbmhs.sql:/docker-entrypoint-initdb.d/dbmhs.sql
+      - ./dbmhs.sql:/docker-entrypoint-initdb.d/dbmhs.sql 
     networks:
       - backend
 
 volumes:
-  db:
+    db: 
 
 #Docker Networks
 networks:

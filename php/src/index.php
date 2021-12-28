@@ -1,11 +1,11 @@
 <?php
 	//Koneksi Database
-	$server = "localhost";
-	$user = "root";
-	$pass = "";
-	$database = "dbmhs";
-
-	$koneksi = mysqli_connect($server, $user, $pass, $database)or die(mysqli_error($koneksi));
+	define('DB_SERVER', '172.20.0.2');
+	define('DB_USER', 'root');
+	define('DB_PASS', 'admin');
+	define('DB_NAME', 'dbmhs');
+	
+		$connect=mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
 
 	//jika tombol simpan diklik
 	if(isset($_POST['bsimpan']))
