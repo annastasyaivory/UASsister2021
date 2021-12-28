@@ -5,7 +5,7 @@
 	define('DB_PASS', 'admin');
 	define('DB_NAME', 'dbmhs');
 	
-		$connect=mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
+		$koneksi=mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
 
 	//jika tombol simpan diklik
 	if(isset($_POST['bsimpan']))
